@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MENU_API } from "./constants";
+import {menuData} from "./constants";
 
 const useRestaruntMenu=(resId)=>{
     const [resInfo,setResInfo]=useState(null);
@@ -8,10 +9,10 @@ const useRestaruntMenu=(resId)=>{
     },[])
 
     const fetchData=async()=>{
-        
-        const data=await fetch(MENU_API+resId);
-        const json=await data.json();
-        setResInfo(json.data);
+        setTimeout(()=>{
+            const json= menuData;
+            setResInfo(json.data);
+         },2000)
     }
     return resInfo;
 }
